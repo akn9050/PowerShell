@@ -15,35 +15,34 @@
        New-AzResourceGroup -Name "MyFirstRGwithPowerShell" -Location "West US"  
        This will create a resource group in your azure subscription in westus region.
     
-**Create Storage Account**
+1. **Create Storage Account**
 
-    New-AzStorageAccount -Name "strg7hhk" -Location "westus" -ResourceGroupName "MyFirstRGwithPowerShell" -SkuName Standard_LRS 
-    Storage account name must be unique globally.
+       New-AzStorageAccount -Name "strg7hhk" -Location "westus" -ResourceGroupName "MyFirstRGwithPowerShell" -SkuName Standard_LRS 
+       Storage account name must be unique globally.
 
-**Create Virtual Network**
+1. **Create Virtual Network**
 
-    $Subnet1 = New-AzVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix "10.0.0.0/24"
-    New-AzVirtualNetwork -Name "MyVNet" -Location "westus" -ResourceGroupName "MyFirstRGwithPowerShell" -AddressPrefix "10.0.0.0/16" -Subnet $Subnet1
+       $Subnet1 = New-AzVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix "10.0.0.0/24"
+       New-AzVirtualNetwork -Name "MyVNet" -Location "westus" -ResourceGroupName "MyFirstRGwithPowerShell" -AddressPrefix "10.0.0.0/16" -Subnet $Subnet1
 
-**Create virtual network and store it in an object variable.**
+1. **Create virtual network and store it in an object variable.**
 
-    $Subnet1 = New-AzVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix "10.100.0.0/24"
-    $virtualNetwork = New-AzVirtualNetwork `
-      -ResourceGroupName MyFirstRGwithPowerShell `
-      -Location westus `
-      -Name MyVNet2 `
-      -AddressPrefix 10.100.0.0/16 `
-      -Subnet $Subnet1
+       $Subnet1 = New-AzVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix "10.100.0.0/24"
+       $virtualNetwork = New-AzVirtualNetwork `
+         -ResourceGroupName MyFirstRGwithPowerShell `
+         -Location westus `
+         -Name MyVNet2 `
+         -AddressPrefix 10.100.0.0/16 `
+         -Subnet $Subnet1
 
-    $virtualNetworkName = $virtualNetwork.Name
-    $virtualNetworkID = $virtualNetwork.Id
+       $virtualNetworkName = $virtualNetwork.Name
+       $virtualNetworkID = $virtualNetwork.Id
 
-**Add Subnet to existing vNet (Virtual Network)**
+1. **Add Subnet to existing vNet (Virtual Network)**
 
-    $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-      -Name subnet2 `
-      -AddressPrefix 10.100.3.0/24 `
-      -VirtualNetwork $virtualNetwork
+       $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
+         -Name subnet2 `
+         -AddressPrefix 10.100.3.0/24 `
+         -VirtualNetwork $virtualNetwork
 
-    $virtualNetwork | Set-AzVirtualNetwork
-
+       $virtualNetwork | Set-AzVirtualNetwork
