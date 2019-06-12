@@ -46,5 +46,5 @@
       -AddressPrefix 10.100.3.0/24 `
       -VirtualNetwork $virtualNetwork
 
-# $virtualNetwork | Set-AzVirtualNetwork
+    $virtualNetwork | Set-AzVirtualNetwork
 
