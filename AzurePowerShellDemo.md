@@ -1,20 +1,19 @@
-**Login to Azure Account**
+1. **Login to Azure Account**
   
-    Connect-AzAccount
-**or**
-    Login-AzAccount
+         Connect-AzAccount
+         **-----or----**
+         Login-AzAccount
+1. **Set Azure Subscription**
 
-**Set Azure Subscription**
+       Get-AzSubscription   
+       This command gets the all Subscriptions on which you have access within your existing azure account.
 
-    Get-AzSubscription   
-    This command gets the all Subscriptions on which you have access within your existing azure account.
-    
-    Select-AzSubscription -Subscription "Replace me with SubscriptionID"
-    Set a subscription in which you are going to work.
-**Create Resource Group**
+       Select-AzSubscription -Subscription "Replace me with SubscriptionID"
+       Set a subscription in which you are going to work.
+1. **Create Resource Group**
 
-    New-AzResourceGroup -Name "MyFirstRGwithPowerShell" -Location "West US"  
-    This will create a resource group in your azure subscription in westus region.
+       New-AzResourceGroup -Name "MyFirstRGwithPowerShell" -Location "West US"  
+       This will create a resource group in your azure subscription in westus region.
     
 **Create Storage Account**
 
