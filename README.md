@@ -4,6 +4,10 @@
 To install Azure PowerShell on your system, see [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
 **Check Window PowerShell version**
 
+<button class="action" data-bi-name="copy" aria-label="Copy code">
+				<span class="docon docon-edit-copy" role="presentation"></span>
+				<span>Copy</span>
+			</button>
     $PSVersionTable.PSVersion
     
 Install Azure PowerShell Module
